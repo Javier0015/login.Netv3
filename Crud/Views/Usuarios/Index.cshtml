@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Crud.Models.Usuarios>
+
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+
+<html>
+<head>
+    <title>Dimension by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="~/Content/main.css" />
+    <noscript><link rel="stylesheet" href="~/Content/noscript.css" /></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="logo">
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+            <div class="content">
+                <div class="inner">
+                    <h1>Registro</h1>
+                    <p>
+                        ㅤ  @Html.ActionLink("Registrate", "Create", "", new { @class = "btn btn-success" })
+
+                </div>
+            </div>
+        </header>
+        <h2>Usuarios</h2>
+
+
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Correo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th>Acciones</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre, new { @class = "text-white" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Correo, new { @class = "text-white" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono, new { @class = "text-white" })
+                    </td>
+                    <td>
+
+
+                        ㅤ
+                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" })
+                        ㅤ
+                        @Html.ActionLink("Elimar", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">&copy; Francisco Barrera</a>.</p>
+        </footer>
+
+    </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/browser.min.js"></script>
+    <script src="~/Content/js/breakpoints.min.js"></script>
+    <script src="~/Content/js/util.js"></script>
+    <script src="~/Content/js/main.js"></script>
+
+</body>
+</html>
+
